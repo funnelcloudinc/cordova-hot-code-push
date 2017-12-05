@@ -314,7 +314,9 @@ public class HotCodePushPlugin extends CordovaPlugin {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                webView.clearHistory();
+                // https://github.com/nordnet/cordova-hot-code-push/issues/192#issuecomment-236514955
+                // Clear history after installing update not on init
+                // webView.clearHistory();
 
             }
         });
@@ -861,6 +863,9 @@ public class HotCodePushPlugin extends CordovaPlugin {
             @Override
             public void run() {
                 HotCodePushPlugin.this.redirectToLocalStorageIndexPage();
+                // Clear history after redirecting to homepage
+                // https://github.com/nordnet/cordova-hot-code-push/issues/192#issuecomment-236514955
+                webView.clearHistory();
             }
         });
 
