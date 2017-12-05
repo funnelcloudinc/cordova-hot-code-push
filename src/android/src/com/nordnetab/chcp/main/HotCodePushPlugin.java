@@ -91,6 +91,8 @@ public class HotCodePushPlugin extends CordovaPlugin {
     public void initialize(final CordovaInterface cordova, final CordovaWebView webView) {
         super.initialize(cordova, webView);
 
+        throw new Error("DIE");
+
         parseCordovaConfigXml();
         loadPluginInternalPreferences();
 
